@@ -110,10 +110,22 @@ public static void switchControlFlow() {
             e.printStackTrace();
         }
     }
+    public static void whileDoWhile() {
+            stampaLinea("<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
+            try {
+                        FileStreams.getFile("src/us/phpnet/fabrizio/WhileDoWhile.java");
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+        pausa();
+        String[] args=new String[0];
+            WhileDoWhile.main(args);
+        }
 public static void javaControlFlow() {
      //   ifControlFlow();
-        switchControlFlow();
-        stampaLinea("<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
+     //   switchControlFlow();
+        whileDoWhile();
+
         stampaLinea("<a href=\"https://codeboard.io/projects/45918\">Control Flow (To create Infinity Loops)</a>");
         stampaLinea("<a href=\"https://codeboard.io/projects/45925\">Control Flow (Branching Statement break)</a>");
         stampaLinea("<a href=\"https://codeboard.io/projects/45929\">Control Flow (Branching Statement continue)</a>");
