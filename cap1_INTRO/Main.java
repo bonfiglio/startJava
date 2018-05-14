@@ -1,29 +1,30 @@
-package us.phpnet.fabrizio;
+package us.phpnet.fabrizio.cap1_INTRO;
 
-import us.phpnet.fabrizio.fileIO.FileStreams;
+import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
 
 /**
  * Main class of the Java program.
+ * Vedi  anche  https://codeboard.io/projects/47129
  */
 
 public class Main {
-public static void pausa () {
+    public static void pausa () {
         try {
-        Thread.sleep(3000);
-        } catch(InterruptedException ex) {
-        Thread.currentThread().interrupt();
-        }
-        }
-        
-public static void stampaLinea (String argo) {
-    for (int i=0 ; i< argo.length(); i++)
-        try { System.out.print(argo.charAt(i));
-            Thread.sleep(100);
+            Thread.sleep(3000);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-    System.out.print('\n');
-    }        
+    }
+
+    public static void stampaLinea (String argo) {
+        for (int i=0 ; i< argo.length(); i++)
+            try { System.out.print(argo.charAt(i));
+                Thread.sleep(100);
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+        System.out.print('\n');
+    }
         
 public static void javaOverview () {
         stampaLinea("Java is a platform this platform is a set of tools, components, elements that allow to develop Java programs.");
@@ -111,7 +112,9 @@ public static void switchControlFlow() {
         }
     }
     public static void whileDoWhile() {
-            stampaLinea("<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
+        stampaLinea("<a href=\"https://codeboard.io/projects/45910\">Control Flow (While Statement)</a>");
+        stampaLinea("<a href=\"https://codeboard.io/projects/45942\">Control Flow (While Statement)</a>");
+        stampaLinea("<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
             try {
                         FileStreams.getFile("src/us/phpnet/fabrizio/WhileDoWhile.java");
                 } catch (Exception e) {
@@ -182,8 +185,9 @@ public static void main(String[] args) {
       //  javaIs();
       //  javaKeywords();
        // javaStatically();
-        javaControlFlow();
         operatoriConfronto(3 , 9 );
+        javaControlFlow();
+
 
         stampaLinea("\tThe term \"instance variable\" is another name for non-static field.");
         stampaLinea("\tThe term \"class variable\" is another name for static field.");

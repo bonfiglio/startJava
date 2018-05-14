@@ -1,4 +1,4 @@
-package us.phpnet.fabrizio;
+package us.phpnet.fabrizio.cap1_INTRO;
 
 
 public class SwitchControlFlow {
