@@ -8,9 +8,14 @@ import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
  */
 
 public class Main {
+
+
+
+    private static int attensa = 100;
+
     public static void pausa () {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(300);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
@@ -19,7 +24,8 @@ public class Main {
     public static void stampaLinea (String argo) {
         for (int i=0 ; i< argo.length(); i++)
             try { System.out.print(argo.charAt(i));
-                Thread.sleep(100);
+                Thread.sleep(attensa);
+
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
@@ -97,7 +103,7 @@ public static void ifControlFlow() {
     stampaLinea("<a href=\"https://codeboard.io/projects/45937\">Control Flow (If ) 	</a>");
     stampaLinea("<a href=\"https://codeboard.io/projects/45943\">Control Flow (If ) 	</a>");
     try {
-        FileStreams.getFile("src/us/phpnet/fabrizio/IfControlFlow.java");
+        FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/IfControlFlow.java");
     } catch (Exception e) {
         e.printStackTrace();
     }
@@ -106,17 +112,19 @@ public static void switchControlFlow() {
     stampaLinea("<a href=\"https://codeboard.io/projects/40831\">Control Flow (Switch Statement) 	</a>");
     stampaLinea("<a href=\"https://codeboard.io/projects/45938\">Control Flow (Switch Statement) 	</a>");
         try {
-            FileStreams.getFile("src/us/phpnet/fabrizio/SwitchControlFlow.java");
+            FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/SwitchControlFlow.java");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     public static void whileDoWhile() {
-        stampaLinea("<a href=\"https://codeboard.io/projects/45910\">Control Flow (While Statement)</a>");
-        stampaLinea("<a href=\"https://codeboard.io/projects/45942\">Control Flow (While Statement)</a>");
-        stampaLinea("<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
+        stampaLinea("####### ESEMPI DI : Control Flow (While Statement) e (Do While) #####");
+        stampaLinea("# <a href=\"https://codeboard.io/projects/45910\">Control Flow (While Statement)</a>");
+        stampaLinea("#<a href=\"https://codeboard.io/projects/45942\">Control Flow (While Statement)</a>");
+        stampaLinea("#<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
+        stampaLinea("#######  ######  ####  ###  ##  #");
             try {
-                        FileStreams.getFile("src/us/phpnet/fabrizio/WhileDoWhile.java");
+                        FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/WhileDoWhile.java");
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
@@ -125,8 +133,8 @@ public static void switchControlFlow() {
             WhileDoWhile.main(args);
         }
 public static void javaControlFlow() {
-     //   ifControlFlow();
-     //   switchControlFlow();
+        ifControlFlow();
+        switchControlFlow();
         whileDoWhile();
 
         stampaLinea("<a href=\"https://codeboard.io/projects/45918\">Control Flow (To create Infinity Loops)</a>");
@@ -165,27 +173,29 @@ static void javaStatically(){
 
 static int operatoriConfronto(int x , int y )
         {
-        stampaLinea("\t*******\t* OPERATORI DI CONFRONTO");
-        stampaLinea(" Con x="+x +" e y="+ y );
+        stampaLinea("\t*******\t* OPERATORI DI CONFRONTO *******");
+        stampaLinea("\t* Con x="+x +" e y="+ y );
         boolean a= true, b= false; // true  1   false 0
-        stampaLinea("Valori logici a="+a +(a?" Vero o true  ":" falso o false ")+"e b="+b+(b?" true ":" false "));
+        stampaLinea("\t* Valori logici a="+a +(a?" Vero o true  ":" falso o false ")+"e b="+b+(b?" true ":" false "));
 
-        stampaLinea("\t*\tUgualianza  \t\t==  (y==x) ->"+ (y==x) + (y==x?" true ":" false "));
-        stampaLinea("\t*\tDiversi \t\t!=  (y!=x) ->"+ (y!=x) + (y!=x?" true ":" false "));
-        stampaLinea( "\t*\tMaggiore  \t\t>   (y>x) ->"+ (y> x) + (y>x?" true ":" false "));
-        stampaLinea("\t*\tMaggiore Uguale \t>=  (y>=x) ->"+ (y>=x) + (y>=x?" true ":" false "));
-        stampaLinea("\t*\tMinore  \t\t<   (y< x) ->"+ (y<x) + (y<x?" true ":" false "));
-        stampaLinea("\t*\tMinore Uguale \t\t<=  (y<=x) ->"+ (y<=x) + (y<=x?" true ":" false "));
+        stampaLinea("\t*\tUgualianza\t\t==\t(y==x) ->"+ (y==x) + (y==x?" true ":" false "));
+        stampaLinea("\t*\tDiversi\t\t\t!=\t(y!=x) ->"+ (y!=x) + (y!=x?" true ":" false "));
+        stampaLinea( "\t*\tMaggiore\t\t>\t(y>x) ->"+ (y> x) + (y>x?" true ":" false "));
+        stampaLinea("\t*\tMaggiore Uguale\t>=\t(y>=x) ->"+ (y>=x) + (y>=x?" true ":" false "));
+        stampaLinea("\t*\tMinore\t\t\t<\t(y< x) ->"+ (y<x) + (y<x?" true ":" false "));
+        stampaLinea("\t*\tMinore Uguale\t<=\t(y<=x) ->"+ (y<=x) + (y<=x?" true ":" false "));
         stampaLinea("\t*******************************************" );
         return 0;
         }
-public static void main(String[] args) {
-      //  stampaLinea("BENVENUTI AL CORSO JAVA1 ");
-      //  javaOverview ();
-      //  javaIs();
-      //  javaKeywords();
-       // javaStatically();
+public  static void main(String[] args) {
+       attensa=1;
+      stampaLinea("BENVENUTO AL CORSO JAVA1 ");
+        javaOverview ();
+        javaIs();
+        javaKeywords();
+        javaStatically();
         operatoriConfronto(3 , 9 );
+        attensa=50;
         javaControlFlow();
 
 

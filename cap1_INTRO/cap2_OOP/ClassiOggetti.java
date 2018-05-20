@@ -11,12 +11,12 @@ import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.esercizi.Classroom;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.veicoli.Auto;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.veicoli.AutoF1;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.veicoli.Moto;
-import us.phpnet.fabrizio.cap2_OOP.animal.*;
+//import us.phpnet.fabrizio.cap2_OOP.animal.*;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.band.BandMember;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.band.Human;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.bicycle.BicycleDemo;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.esercizi.TimeHelper;
-import us.phpnet.fabrizio.cap2_OOP.veicoli.*;
+//import us.phpnet.fabrizio.cap2_OOP.veicoli.*;
 
 
     /**
