@@ -1,5 +1,6 @@
 package us.phpnet.fabrizio.cap1_INTRO;
 
+import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.ClassiOggetti;
 import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
 
 /**
@@ -10,8 +11,16 @@ import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
 public class Main {
 
 
+    private static  int attensa = 100;
 
-    private static int attensa = 100;
+    public static int getAttensa() {
+        return attensa;
+    }
+
+    public static void setAttensa(int tempo) {
+        attensa= tempo;
+
+    }
 
     public static void pausa () {
         try {
@@ -103,7 +112,7 @@ public static void ifControlFlow() {
     stampaLinea("<a href=\"https://codeboard.io/projects/45937\">Control Flow (If ) 	</a>");
     stampaLinea("<a href=\"https://codeboard.io/projects/45943\">Control Flow (If ) 	</a>");
     try {
-        FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/IfControlFlow.java");
+        FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/IfControlFlow.java", attensa);
     } catch (Exception e) {
         e.printStackTrace();
     }
@@ -112,7 +121,7 @@ public static void switchControlFlow() {
     stampaLinea("<a href=\"https://codeboard.io/projects/40831\">Control Flow (Switch Statement) 	</a>");
     stampaLinea("<a href=\"https://codeboard.io/projects/45938\">Control Flow (Switch Statement) 	</a>");
         try {
-            FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/SwitchControlFlow.java");
+            FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/SwitchControlFlow.java", attensa);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -124,7 +133,7 @@ public static void switchControlFlow() {
         stampaLinea("#<a href=\"https://codeboard.io/projects/45912\">Control Flow (Do While)</a>");
         stampaLinea("#######  ######  ####  ###  ##  #");
             try {
-                        FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/WhileDoWhile.java");
+                        FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/WhileDoWhile.java", attensa);
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
@@ -195,7 +204,7 @@ public  static void main(String[] args) {
         javaKeywords();
         javaStatically();
         operatoriConfronto(3 , 9 );
-        attensa=50;
+
         javaControlFlow();
 
 
@@ -206,7 +215,11 @@ public  static void main(String[] args) {
         stampaLinea("\tWhat are the eight primitive data types supported by the Java programming language? byte, short, int, long, float, double, boolean, char");
         stampaLinea("\tCharacter strings are represented by the <a href=\"https://docs.oracle.com/javase/8/docs/api/java/lang/String.html\"> class java.lang.String. </a>");
         stampaLinea("\tAn array is a container object that holds a fixed number of values of a single type.");
-
+    attensa=50;
         stampaLinea("<a href=\"https://codeboard.io/projects/47129\">Continua con Classi oggetti e metodi  </a>");
+
+
+
+    ClassiOggetti.main();
         }
 }

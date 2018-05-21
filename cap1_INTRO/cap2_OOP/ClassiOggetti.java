@@ -1,5 +1,6 @@
 package us.phpnet.fabrizio.cap1_INTRO.cap2_OOP;
 
+import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
 
 import us.phpnet.fabrizio.cap1_INTRO.Main;
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.animal.Animal;
@@ -217,9 +218,17 @@ import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.esercizi.TimeHelper;
         }
         public static void main() {
             Main.stampaLinea("Hello World! Mondo di Classi Oggetti e Metodi");
-
+            Main.setAttensa(2);
             intro();
             pausa();
+            try {
+                FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/cap2_OOP/bicycle/Bicycle.java", Main.getAttensa());
+                Main.stampaLinea("Uso la classe Bicycle ed istanzio gli oggetti ");
+
+                FileStreams.getFile("src/us/phpnet/fabrizio/cap1_INTRO/cap2_OOP/bicycle/BicycleDemo.java", Main.getAttensa());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             BicycleDemo.main();
             pausa();
             Main.stampaLinea("<a href=\"https://docs.oracle.com/javase/8/docs/api/index.html\">LE API di java un insieme di Package. Package insieme di classi ed interfacce</a>");
