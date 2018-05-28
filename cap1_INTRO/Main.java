@@ -1,7 +1,11 @@
 package us.phpnet.fabrizio.cap1_INTRO;
 
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.ClassiOggetti;
+import us.phpnet.fabrizio.cap1_INTRO.cap99_DATABASE.db.ConnectDB;
 import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Main class of the Java program.
@@ -86,6 +90,26 @@ public static void javaIs() {
 
         pausa();
         }
+
+public static void javaLeggi () throws IOException {
+    /** Using Console to read input(usable only outside IDE):
+    Console console = System.console();
+    String username = console.readLine("Please enter user name : ");
+    System.out.println("Hello user : " + username); */
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    System.out.print("Please enter user name :");
+    String username = br.readLine();
+    System.out.println("Hello user : " + username);
+    System.out.print("Enter Integer:");
+
+    try{
+        int i = Integer.parseInt(br.readLine());
+        System.out.println("Hello user : " + username+ " "+i);
+    }catch(NumberFormatException nfe){
+        System.err.println("Invalid Format!");
+    }
+
+}
 
 public static void javaKeywords() {
         stampaLinea("Java Language Keywords PAROLE RISERVATE NON Usare come Identificatori ");
@@ -197,11 +221,17 @@ static int operatoriConfronto(int x , int y )
         return 0;
         }
 public  static void main(String[] args) {
+    ConnectDB.test();
        attensa=1;
       stampaLinea("BENVENUTO AL CORSO JAVA1 ");
         javaOverview ();
         javaIs();
-        javaKeywords();
+    try {
+        javaLeggi();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    javaKeywords();
         javaStatically();
         operatoriConfronto(3 , 9 );
 
@@ -221,5 +251,7 @@ public  static void main(String[] args) {
 
 
     ClassiOggetti.main();
+
+
         }
 }
