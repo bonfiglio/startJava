@@ -2,13 +2,14 @@ package us.phpnet.fabrizio.cap1_INTRO;
 
 import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.ClassiOggetti;
 import us.phpnet.fabrizio.cap1_INTRO.cap99_DATABASE.db.ConnectDB;
+import us.phpnet.fabrizio.cap1_INTRO.cap99_DATABASE.dbMain;
 import us.phpnet.fabrizio.cap1_INTRO.fileIO.FileStreams;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Main class of the Java program.
+ * dbMain class of the Java program.
  * Vedi  anche  https://codeboard.io/projects/47129
  */
 
@@ -28,7 +29,7 @@ public class Main {
 
     public static void pausa () {
         try {
-            Thread.sleep(300);
+            Thread.sleep(3000);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
@@ -108,7 +109,10 @@ public static void javaLeggi () throws IOException {
     }catch(NumberFormatException nfe){
         System.err.println("Invalid Format!");
     }
-
+    stampaLinea("// Ecco come fare:  Using Console to read input(usable only outside IDE):");
+    stampaLinea(" Console console = System.console();");
+    stampaLinea( "String username = console.readLine(\"Please enter user name : \");");
+    stampaLinea("System.out.println(\"Hello user : \" + username); ");
 }
 
 public static void javaKeywords() {
@@ -221,36 +225,87 @@ static int operatoriConfronto(int x , int y )
         return 0;
         }
 public  static void main(String[] args) {
-    ConnectDB.test();
-       attensa=1;
-      stampaLinea("BENVENUTO AL CORSO JAVA1 ");
-        javaOverview ();
-        javaIs();
-    try {
-        javaLeggi();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    javaKeywords();
-        javaStatically();
-        operatoriConfronto(3 , 9 );
-
-        javaControlFlow();
-
-
-        stampaLinea("\tThe term \"instance variable\" is another name for non-static field.");
-        stampaLinea("\tThe term \"class variable\" is another name for static field.");
-        stampaLinea("\tA local variable stores temporary state; it is declared inside a method.");
-        stampaLinea("\tA variable declared within the opening and closing parenthesis of a method is called a parameter.");
-        stampaLinea("\tWhat are the eight primitive data types supported by the Java programming language? byte, short, int, long, float, double, boolean, char");
-        stampaLinea("\tCharacter strings are represented by the <a href=\"https://docs.oracle.com/javase/8/docs/api/java/lang/String.html\"> class java.lang.String. </a>");
-        stampaLinea("\tAn array is a container object that holds a fixed number of values of a single type.");
+    BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
     attensa=50;
-        stampaLinea("<a href=\"https://codeboard.io/projects/47129\">Continua con Classi oggetti e metodi  </a>");
+    do {
+        System.out.println("######[ BENVENUTO AL CORSO JAVA1 ]######");
+        System.out.println("#  1 - Introduzione ");
+        System.out.println("#  2 - Cos'è Java ");
+        System.out.println("#  3 - Input in Java ");
+        System.out.println("#  4 - Parole chiave  (riservate) ");
+        System.out.println("#  5 - Java linguaggio statically-typed ");
+        System.out.println("#  6 - Operatori di confronto ");
+        System.out.println("#  7 - Java controllo del flusso di esecuzione " );
+        System.out.println("#  8 - Classi e oggetti " );
+
+        System.out.println("# 10 - Connessione a Data Base  " );
+        System.out.print("######[Inserisci un numero (0=exit):");
+        try{
+            int choice = Integer.parseInt(bufr.readLine());
+            switch (choice) {
+                case 0:
+                    System.out.print("######[Grazie e alla prossima ]######");
+                    pausa();
+                    return;
+                case 1:
+                    javaOverview ();
+                    break;
+                case 2:
+                    javaIs();
+                    break;
+                case 3:
+                    javaLeggi();
+                    break;
+                case 4:
+                    javaKeywords();
+                    break;
+
+                case 5:
+                    javaStatically();
+                    break;
+
+                case 6:
+                    operatoriConfronto(3 , 9 );
+                    break;
+
+                case 7:
+                    javaControlFlow();
+                    break;
+
+
+                case 8:
+
+                   ClassiOggetti.main();
+                    break;
+                case 10:
+                    dbMain.main();
+                    break;
+                default:
+                    System.out.println("Invalid input");
+                    break;
+            }
+
+            System.out.println("----Unità "+choice+ " Completata. Grazie per l'attenzione ");
+            pausa();
+            System.out.println("\n\n\n");
+        }catch(NumberFormatException nfe){
+            System.err.println("Invalid Format!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    } while (true);
+  //  stampaLinea("\tThe term \"instance variable\" is another name for non-static field.");
+   //     stampaLinea("\tThe term \"class variable\" is another name for static field.");
+   //     stampaLinea("\tA local variable stores temporary state; it is declared inside a method.");
+ //       stampaLinea("\tA variable declared within the opening and closing parenthesis of a method is called a parameter.");
+ //       stampaLinea("\tWhat are the eight primitive data types supported by the Java programming language? byte, short, int, long, float, double, boolean, char");
+  //      stampaLinea("\tCharacter strings are represented by the <a href=\"https://docs.oracle.com/javase/8/docs/api/java/lang/String.html\"> class java.lang.String. </a>");
+ //       stampaLinea("\tAn array is a container object that holds a fixed number of values of a single type.");
+ //   attensa=50;
+  //      stampaLinea("<a href=\"https://codeboard.io/projects/47129\">Continua con Classi oggetti e metodi  </a>");
 
 
 
-    ClassiOggetti.main();
 
 
         }

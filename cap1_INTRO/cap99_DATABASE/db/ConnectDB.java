@@ -84,7 +84,9 @@ public class ConnectDB {
                 }
             }
         }
-
+/*
+PER ESEGUIRE FILE SQL SU SERVER
+ */
         public static void importSQL(Connection conn, File inputFile) throws SQLException, FileNotFoundException {
             Scanner s = new Scanner(inputFile);
             s.useDelimiter("(;(\r)?\n)|(--\n)");

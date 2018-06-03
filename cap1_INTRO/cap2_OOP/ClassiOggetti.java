@@ -21,7 +21,7 @@ import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.esercizi.TimeHelper;
 
 
     /**
-     * Main class of the Java program.
+     * dbMain class of the Java program.
      */
 
     public class ClassiOggetti {
@@ -205,8 +205,8 @@ import us.phpnet.fabrizio.cap1_INTRO.cap2_OOP.esercizi.TimeHelper;
             animal.eat();
             bear.eat();
 
-            //Main.stampaLinea(animal.hasEaten);
-            //Main.stampaLinea(bear.color);
+            //dbMain.stampaLinea(animal.hasEaten);
+            //dbMain.stampaLinea(bear.color);
         }
         static void intro(){
             Main.stampaLinea("Una classe e' il progetto da cui vengono creati singoli oggetti.");
