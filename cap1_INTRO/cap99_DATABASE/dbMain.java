@@ -19,7 +19,7 @@ public class dbMain {
         System.out.println("#  1 - Introduction to JDBC");
         System.out.println("#  2 - Always use prepared statements per SICUREZZA del DB  ");
         System.out.println("#  3 - Data Access Object (DAO) ");
-        System.out.println("#  4 - Parole chiave  (riservate) ");
+        System.out.println("#  4 - Mapping Tables to Objects ");
         System.out.println("#  5 - Java linguaggio statically-typed ");
         System.out.println("#  6 - Operatori di confronto ");
         System.out.println("#  7 - Java controllo del flusso di esecuzione " );
@@ -42,10 +42,10 @@ public class dbMain {
 
                     break;
                 case 3:
-
+                     dao();
                     break;
                 case 4:
-
+                    mapTablaObj();
                     break;
 
                 case 5:
@@ -82,6 +82,47 @@ public class dbMain {
         }
     }while (true);
 }
+
+    private static void mapTablaObj() {
+        stampaLinea("Guida per creare  un  insieme di Java Bean (DTO)\n" +
+                "\t\tper rappresentare le informazioni contenute in un DB Relazionale\n" +
+                "\t\t1 Bean per ogni principale entità del DB (non per le tabelle usate per le relazioni n:m \n" +
+                "\t\tNome del Bean stesso nome della tabella (Sempre singolare Tab UTENTE => DAO Utente)   \n"+
+                "\tOgni Bean deve avere stesse proprietà delle colonne della tabella e impostate come private( No quelle FK ) \n" +
+                "\t\tIl costruttore princiipale deve accettare tutti le proprietà  \n" +
+                "\t\tMetodi get()/set()  per ogni proprietà\n"+
+                "\t\tDefinire equals e hashCode  usando l'esatto insieme di campi che compongono la  chiave primaria della tabella\n"+
+                "\tper ogni relazione definire nel Bean attributi aggiuntivi \n"+
+                "\t\tRelazione con cardinalità 1 mappare oggetto  java in un attributo nome al singolare \n"+
+                "\t\tEs . se Tab STUDENTE include fk_persona  la classe  Strudente includer-> private Persona persona \n"+
+                "\t\t  Tab PERSONA include pk_studente  la classe Persona includerà  -> private Studente studente  \n"+
+                "\t\tRelazione con cardinalità N mappare una collezione di oggetti  java in un attributo con nome al plurale e metodi per manipolare la collezione  \n"+
+                "\t\tEs . se Tab STUDENTE include fk_citta  la classe  Strudente includera-> private Citta citta \n"+
+                "\t\t  Tab CITTA non include pk_studente ma la classe java Citta deve riportare  -> private Collection <Studente> studentiResidenti  \n"+
+                "\t\t Tabelle per relazioni N:M saranno riportate come Collection nelle due classi \n"+
+                "\t\t ");
+
+    }
+
+    private static void dao() {
+        {
+            stampaLinea("LOGICA\n\tCreare un insieme di «DAO» classes: \n" +
+                    "\t\tChe incapsulano tutto il codice per accedere al database(JDBC)\n" +
+                    "\t\tLe sole classi che pussono contattare ed operare con con il DB\n" +
+                    "\t\tIgnorano ogni scopo del Client\n"+
+                    "\t«Client» classes:  Insieme di classi con il codice dell'applicazione  e\n" +
+                    "\t\thanno bisogno di accedere al DB \n" +
+                    "\t\tma ignorano i dettagli del  database (connection, queries, schema, ...)\n"+
+                    "DriverManager, DataSource, ResultSet, etc risiedono SOLO negli Obj DAO\n"+
+                    "\tdati inviati fra client e DOA sono detti Data Transfer Object DTO sono i modelli di dati (navette)\n"+
+                    "\t\t\rClient Crea DTO e Usa DAO\n"+
+                    "\t\t\rDAO Crea e/o usa DTO,  offre metodi CRUD a Client  accede a DataSource e usa i ResultSet del DataSource \n"+
+                    "\nDAO oggetti senza stato => senza istanze => senza memoria (solo la connessione \n"+
+                    "\t\t Offre metodi CRUD Create, Read, Update, Delete  usando DTO\n"+
+                    "\t\t Offre metodi di ricerca Returning collections of DTO");
+
+        }
+    }
 
     private static void usoPreparedStatements() {
         stampaLinea("LOGICA Per separa la creazione dello statement dalle sua esecuzione \n"+
